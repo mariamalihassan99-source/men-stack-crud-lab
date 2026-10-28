@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>document</title>
+   <link rel="stylesheet" href="/style.css">
+    </head>
+
+    <body>
+
+    <%- include('partials/navbar.ejs') %>
+
+<h1>    Beans Details for <%= coffee.name %></h1>
+<img src="<%= coffee.image %>" alt="<%= coffee.name %>">
+<p>description: <%= coffee.description %></p>
+<p>Price: $<%= coffee.price %></p>
+<p>Country: <%= coffee.country.join(', ') %></p>
+<p>Decaf: <%= coffee.isDecaf ? 'Yes' : 'No' %></p>
+ 
+<form action="/coffees/<%= coffee._id %>/delete?_method=DELETE" method="POST">
+  <button type="submit">Delete Coffee</button>
+</form>
+<!-- scriptlet tag  : javascript logic in the ejs file (for loops, if statements)-->
+<a href="/coffees/<%= coffee._id %>/edit">Edit Coffee details</a>
+    </body>
+</html>

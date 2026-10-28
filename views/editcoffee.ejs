@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>document</title>
+   <link rel="stylesheet" href="/style.css">
+    </head>
+
+    <body>
+
+    <%- include('partials/navbar.ejs') %>
+
+<h1>edit coffee details</h1>
+<form action="/coffees/<%= coffee._id %>?_method=PUT" method="POST">
+  <label for="name">Name:</label>
+  <input value="<%= coffee.name %>" name="name" id="name" type="text">
+  <br>
+  <label for="description">Description:</label>
+  <input value="<%= coffee.description %>" name="description" id="description" type="text">
+  <br>                  
+  <label for="image">Image URL:</label>
+  <input value="<%= coffee.image %>" name="image" id="image" type="text">
+  <br>
+  <label for="price">Price:</label>
+  <input value="<%= coffee.price %>" name="price" id="price" type="number" step="0.01">
+  <br>
+  <label for="country">Country:</label>
+  <input value="<%= coffee.country %>" name="country" id="country" type="text">
+  <br>
+  <label for="isDecaf">Is Decaf:</label>
+  <input <% if (coffee.isDecaf) { %>checked<% } %> type="checkbox" id="isDecaf" name="isDecaf">
+  <br>
+  <button type="submit">Update Coffee</button>
+</form>
+
+<!-- scriptlet tag  : javascript logic in the ejs file (for loops, if statements)-->
+
+    </body>
+</html>
